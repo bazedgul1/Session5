@@ -52,4 +52,16 @@ router.post('/login', async (req,res) => {
     }
 })
 
+router.get('/users', async (req,res) => {
+    console.log("hello")
+    try {
+        console.log("hello1")
+        const users = await User.find();
+        console.log("hello user", users)
+        res.status(201).json(users);
+    } catch (error) {
+        console.log("User not getting from DB");
+        res.status(401).json({message: "User not fetching"});
+    }
+})
 export default router;
