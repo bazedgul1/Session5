@@ -102,7 +102,7 @@ router.delete('/delete/:id', async (req, res) => {
             return res.status(404).json({message: "User not found"});
         }
 
-        await user.remove(); // User delete karo
+        await user.deleteOne(); // User delete karo
         res.status(200).json({message: "User deleted successfully"});
     } catch (error) {
         console.log("Failed to delete user", error);
